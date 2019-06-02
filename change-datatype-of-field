@@ -1,0 +1,5 @@
+// Changes purchase price from string to integer
+db.facilities.find( { 'purchasePrice' : { $type : 'string'} } ).forEach( function (x) {   
+  x.purchasePrice = new NumberInt(x.purchasePrice);
+  db.facilities.save(x);
+});
